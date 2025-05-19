@@ -75,8 +75,8 @@ Function ip_in_range($ip, $range) {
       return (($ip_dec & $netmask_dec) == ($range_dec & $netmask_dec));
     }
   } else {
-    // range might be 255.255.*.* or 1.2.3.0-1.2.3.255
-    if (strpos($range, '*') !==false) { // a.b.*.* format
+    // range might be 255.255.. or 1.2.3.0-1.2.3.255
+    if (strpos($range, '') !==false) { // a.b..* format
       // Just convert to A-B format by setting * to 0 for A and 255 for B
       $lower = str_replace('*', '0', $range);
       $upper = str_replace('*', '255', $range);
